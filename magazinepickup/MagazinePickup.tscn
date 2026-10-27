@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dauiqf24yegw2"]
+
+[ext_resource type="Script" uid="uid://b0yv1i45sqd" path="res://magazinepickup/magazine_pickup.gd" id="1_0lsp4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0lsp4"]
+radius = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0lsp4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_p5y5u"]
+material = SubResource("StandardMaterial3D_0lsp4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3afj1"]
+
+[node name="MagazinePickup" type="Node3D" unique_id=483891677]
+script = ExtResource("1_0lsp4")
+max_amount = 12
+current_amount = 12
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1227782573]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1733788476]
+shape = SubResource("SphereShape3D_0lsp4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=554990313]
+mesh = SubResource("BoxMesh_p5y5u")
+surface_material_override/0 = SubResource("StandardMaterial3D_3afj1")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

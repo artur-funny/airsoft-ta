@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c4hkmnwpevorh"]
+
+[ext_resource type="Script" uid="uid://cfeabdb1g46tc" path="res://bb/bb2.gd" id="1_0dram"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_p5y5u"]
+radius = 0.03
+height = 0.06
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rk0ht"]
+albedo_color = Color(1, 0, 1, 1)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d1gas"]
+radius = 0.03
+
+[node name="projetil" type="Area3D" unique_id=1287437248]
+collision_layer = 4
+collision_mask = 9
+script = ExtResource("1_0dram")
+
+[node name="Node3D" type="MeshInstance3D" parent="." unique_id=981256962]
+mesh = SubResource("SphereMesh_p5y5u")
+surface_material_override/0 = SubResource("StandardMaterial3D_rk0ht")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1682015992]
+shape = SubResource("SphereShape3D_d1gas")
+
+[node name="Timer" type="Timer" parent="." unique_id=1238363990]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1252119001]
+top_level = true
+collision_mask = 8
+hit_from_inside = true
+collide_with_areas = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

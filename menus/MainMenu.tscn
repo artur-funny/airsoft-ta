@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bp25o585bpp26"]
+
+[ext_resource type="Script" uid="uid://bxvknxuxpg7bc" path="res://menus/main_menu.gd" id="1_ct8su"]
+
+[node name="MainMenu" type="Control" unique_id=1094983319]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ct8su")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=246739689]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2768395, 0.28655627, 0.37718603, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=1238369800]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="ColorRect/VBoxContainer" unique_id=1255896879]
+layout_mode = 2
+text = "Start"
+
+[node name="Continue" type="Button" parent="ColorRect/VBoxContainer" unique_id=1116261563]
+layout_mode = 2
+text = "Continue"
+
+[node name="LevelSelect" type="Button" parent="ColorRect/VBoxContainer" unique_id=1729610998]
+layout_mode = 2
+text = "Level Select"
+
+[node name="Quit" type="Button" parent="ColorRect/VBoxContainer" unique_id=122535061]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/LevelSelect" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

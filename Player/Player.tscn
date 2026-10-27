@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://byque4w54oowj"]
+
+[ext_resource type="Script" uid="uid://x3lektvp28jy" path="res://Player/player.gd" id="1_3qydi"]
+[ext_resource type="PackedScene" uid="uid://bducjvu87iaq8" path="res://UI/PlayerHUD.tscn" id="2_q3lat"]
+[ext_resource type="PackedScene" uid="uid://bb2xy8o1ujtsi" path="res://weapon/Weapon.tscn" id="2_tok1r"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d1gas"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_d1gas"]
+
+[node name="Player" type="CharacterBody3D" unique_id=2138800632]
+collision_layer = 2
+script = ExtResource("1_3qydi")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=235461239]
+shape = SubResource("CapsuleShape3D_d1gas")
+
+[node name="Model" type="MeshInstance3D" parent="." unique_id=843426600]
+visible = false
+mesh = SubResource("CapsuleMesh_d1gas")
+
+[node name="Head" type="Node3D" parent="." unique_id=1936648273]
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=731674571]
+
+[node name="Weapon" parent="Head" unique_id=1267527165 instance=ExtResource("2_tok1r")]
+
+[node name="PlayerHud" parent="." unique_id=189703008 instance=ExtResource("2_q3lat")]

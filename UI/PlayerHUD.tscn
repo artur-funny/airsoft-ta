@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://bducjvu87iaq8"]
+
+[ext_resource type="Script" uid="uid://ch5cjnwqef5uc" path="res://UI/player_hud.gd" id="1_2pwo7"]
+[ext_resource type="Texture2D" uid="uid://brnl0ervyslub" path="res://UI/crosshair.png" id="2_l0x06"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0dram"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1bfh1"]
+
+[node name="PlayerHud" type="Control" unique_id=189703008]
+propagate_maximum_size = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_2pwo7")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=774392569]
+layout_mode = 0
+offset_right = 63.0
+offset_bottom = 104.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+
+[node name="HudContainer" type="PanelContainer" parent="MarginContainer" unique_id=1371021067]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HudContainer" unique_id=67686278]
+layout_mode = 2
+
+[node name="WeaponMake" type="Label" parent="MarginContainer/HudContainer/VBoxContainer" unique_id=1737263337]
+layout_mode = 2
+text = "%s"
+label_settings = SubResource("LabelSettings_0dram")
+
+[node name="MagazineType" type="Label" parent="MarginContainer/HudContainer/VBoxContainer" unique_id=1471286225]
+layout_mode = 2
+text = "%s"
+label_settings = SubResource("LabelSettings_1bfh1")
+
+[node name="AmmoCounter" type="Label" parent="MarginContainer/HudContainer/VBoxContainer" unique_id=2079418798]
+layout_mode = 2
+text = "%d / %d"
+
+[node name="Mass" type="Label" parent="MarginContainer/HudContainer/VBoxContainer" unique_id=474251095]
+layout_mode = 2
+text = "%f g"
+
+[node name="FireMode" type="Label" parent="MarginContainer/HudContainer/VBoxContainer" unique_id=473791688]
+layout_mode = 2
+text = "%s"
+
+[node name="HopUp" type="Label" parent="MarginContainer/HudContainer/VBoxContainer" unique_id=250275891]
+layout_mode = 2
+text = "%f RPM"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=888876626]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.5
+offset_right = 43.5
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="TimeLabel" type="Label" parent="VBoxContainer" unique_id=1936475450]
+layout_mode = 2
+text = "%ds"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer" unique_id=1075442667]
+layout_mode = 2
+text = "Pontos: %d"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=217887870]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_l0x06")

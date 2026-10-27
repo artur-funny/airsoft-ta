@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bmeh8rmiobthe"]
+
+[ext_resource type="Script" uid="uid://bqaw7wmtfp363" path="res://bb/bb.gd" id="1_515gt"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_p5y5u"]
+radius = 0.3
+height = 0.6
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d1gas"]
+radius = 0.3
+
+[node name="projetil" type="RigidBody3D" unique_id=6824676]
+collision_layer = 0
+collision_mask = 0
+mass = 0.001
+script = ExtResource("1_515gt")
+
+[node name="Node3D" type="MeshInstance3D" parent="." unique_id=981256962]
+mesh = SubResource("SphereMesh_p5y5u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1682015992]
+shape = SubResource("SphereShape3D_d1gas")
+
+[node name="Timer" type="Timer" parent="." unique_id=1238363990]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1252119001]

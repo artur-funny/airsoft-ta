@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bb2xy8o1ujtsi"]
+
+[ext_resource type="Script" uid="uid://do3gb5beji4th" path="res://weapon/Weapon.gd" id="1_gtfc4"]
+[ext_resource type="PackedScene" uid="uid://bhd66sbn77btf" path="res://weapon/Magazine.tscn" id="2_60p3c"]
+[ext_resource type="AudioStream" uid="uid://cbndnhmte5yqy" path="res://sfx/154934__klawykogut__empty-gun-shot.wav" id="3_yjjuw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0lsp4"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_d1gas"]
+material = SubResource("StandardMaterial3D_0lsp4")
+size = Vector3(0.05, 0.05, 0.5)
+
+[node name="Weapon" type="Node3D" unique_id=1267527165 node_paths=PackedStringArray("fire_timer")]
+script = ExtResource("1_gtfc4")
+fire_timer = NodePath("fire_timer")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=547228612]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9914449, -0.13052619, 0, 0.1305262, 0.99144477, 0, -0.1, -0.2)
+mesh = SubResource("BoxMesh_d1gas")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=117540333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -0.5)
+
+[node name="fire_timer" type="Timer" parent="." unique_id=668449269]
+wait_time = 0.1
+one_shot = true
+
+[node name="Magazine" parent="." unique_id=1030320298 instance=ExtResource("2_60p3c")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2129214878]
+stream = ExtResource("3_yjjuw")
+volume_db = -6.0

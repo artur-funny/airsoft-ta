@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cvueq2ct0xfbh"]
+
+[ext_resource type="Script" uid="uid://ch332r0h6a8eb" path="res://menus/lose_screen.gd" id="1_inxc1"]
+
+[node name="ColorRect" type="ColorRect" unique_id=476232908]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3929714, 0.23159009, 0.2568876, 1)
+script = ExtResource("1_inxc1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1077557274]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -4.0
+offset_right = 10.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenuButton" type="Button" parent="HBoxContainer" unique_id=1367348155]
+layout_mode = 2
+text = "Menu Principal"
+
+[node name="NextLevelButton" type="Button" parent="HBoxContainer" unique_id=2030127346]
+layout_mode = 2
+text = "Tentar Novamente"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1548591105]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.1
+offset_left = -85.5
+offset_right = 85.5
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="EndLabel" type="Label" parent="VBoxContainer" unique_id=1819464086]
+layout_mode = 2
+text = "Você falhou, tente novamente.
+Você fez %d pontos"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]

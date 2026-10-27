@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dphdnpe81qqox"]
+
+[ext_resource type="PackedScene" uid="uid://byque4w54oowj" path="res://Player/Player.tscn" id="1_wyh5v"]
+[ext_resource type="PackedScene" uid="uid://xisuguy1y4vs" path="res://Target/Target.tscn" id="2_1bfh1"]
+[ext_resource type="PackedScene" uid="uid://ba6g1dqu5ehx7" path="res://Target/target_spawner.tscn" id="3_xxnkd"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1bfh1"]
+size = Vector2(100, 100)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rk0ht"]
+
+[node name="Test2" type="Node3D" unique_id=8452970]
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1328501762]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=1128395433]
+mesh = SubResource("PlaneMesh_1bfh1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=51312487]
+shape = SubResource("WorldBoundaryShape3D_rk0ht")
+
+[node name="Player" parent="." unique_id=2138800632 instance=ExtResource("1_wyh5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0959325, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=490036833]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 30.557564, 1.0765333, -11.833494)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1149742337]
+light_energy = 8.0
+
+[node name="Target" parent="." unique_id=1938936786 instance=ExtResource("2_1bfh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.346035, -34.80855)
+
+[node name="TargetSpawner" parent="." unique_id=568774785 instance=ExtResource("3_xxnkd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17, 5, 0)

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ba6g1dqu5ehx7"]
+
+[ext_resource type="Script" uid="uid://bamus1q77trfl" path="res://Target/target_spawner.gd" id="1_rk0ht"]
+
+[node name="TargetSpawner" type="Node3D" unique_id=568774785]
+script = ExtResource("1_rk0ht")
+bounds = Vector3(3, 3, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1631642853]
+visible = false
+target_position = Vector3(0, 0, 1)
